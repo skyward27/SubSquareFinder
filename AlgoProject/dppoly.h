@@ -4,9 +4,9 @@
 void find_area_dp_poly(int **mat, int m, int n, int k,int *startr,int *startc, int *endr, int *endc) {
 	int max_area = 0;
 	int endi, endj;
-	int** buffer = new int* [n];
-	for (int i = 0; i < n, ++i) {
-		buffer[i] = new int[m];
+	int** buffer = new int* [m];
+	for (int i = 0; i < m, ++i) {
+		buffer[i] = new int[n];
 	}
 	for (int i = 1; i <= n; i++) {
 		for (int j = 1; j <= m; j++) {
