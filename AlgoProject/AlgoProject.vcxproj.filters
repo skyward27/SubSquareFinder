@@ -21,5 +21,8 @@
     <ClInclude Include="dplin.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="bfrect.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

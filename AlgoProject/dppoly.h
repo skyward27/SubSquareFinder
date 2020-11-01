@@ -1,7 +1,7 @@
 #ifndef DP_POLY_H
 #define DP_POLY_H
 #include <algorithm>
-void find_area_dp_poly(int *mat, int m, int n, int k,int *startr,int *startc, int *endr, int *endc) {
+void find_area_dp_poly(int **mat, int m, int n, int k,int *startr,int *startc, int *endr, int *endc) {
 	int max_area = 0;
 	int endi, endj;
 	int** buffer = new int* [n];

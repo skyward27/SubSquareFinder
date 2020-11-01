@@ -1,7 +1,7 @@
 #ifndef DP_LIN_H
 #define DP_LIN_H
 #include <algorithm>
-void find_area_dp_lin(int* mat, int m, int n, int k, int* startr, int* startc, int* endr, int* endc) {
+void find_area_dp_lin(int** mat, int m, int n, int k, int* startr, int* startc, int* endr, int* endc) {
 	int* buffer = new int[n+1];
 	int max_area, last, int endj, endi;
 	for (int i = 0; i <= m; i++) {
