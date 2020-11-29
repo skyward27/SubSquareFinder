@@ -6,11 +6,11 @@ void bf_rect(int** mat, int m, int n, int k, int* startr, int* startc, int* endr
 	for (int i = 0; i < m; i++) {
 		for (int j = 0; j < n; j++) {
 			if (mat[i][j] < k) continue;
-			for (int o = i; o < m; k++) {
-				for (int l = j; j < n; j++) {
+			for (int o = i; o < m; o++) {
+				for (int l = j; l < n; l++) {
 					if (mat[o][l] < k) continue;
 					bool greater = 1;
-					for (int x = i; x <= o, x++) {
+					for (int x = i; x <= o; x++) {
 						for (int y = j; y <= l; y++) {
 							if (mat[x][y] < k) {
 								greater = 0;
@@ -22,10 +22,10 @@ void bf_rect(int** mat, int m, int n, int k, int* startr, int* startc, int* endr
 					if (greater) {
 						if (max_area < ((o - i + 1) * (l - j + 1))) {
 							max_area = ((o - i + 1) * (l - j + 1));
-							*startr = i;
-							*startc = j;
-							*endr = o;
-							*endc = l;
+							*startr = i+1;
+							*startc = j+1;
+							*endr = o+1;
+							*endc = l+1;
 						}
 
 					}

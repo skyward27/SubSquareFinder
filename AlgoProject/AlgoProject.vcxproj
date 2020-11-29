@@ -142,6 +142,7 @@
     <ClInclude Include="dppoly.h" />
     <ClInclude Include="dplin.h" />
     <ClInclude Include="bfrect.h" />
+    <ClInclude Include="dprect.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="driver.cpp" />

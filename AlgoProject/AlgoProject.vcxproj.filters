@@ -24,6 +24,9 @@
     <ClInclude Include="bfrect.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="dprect.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="driver.cpp">
