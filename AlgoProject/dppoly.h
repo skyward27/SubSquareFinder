@@ -65,8 +65,8 @@ void get_area(int** mat, int m, int n, int k, int* startr, int* startc, int* end
 			}
 		}
 	}
-	*startr = *endr - sqrt(maxArea)+1;
-	*startc = *endc - sqrt(maxArea)+1;
+	*startr = *endr - maxArea-1;
+	*startc = *endc - maxArea-1;
 }
 #endif // !DP_POLY_H
 

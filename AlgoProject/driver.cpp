@@ -6,6 +6,7 @@
 #include "bfrect.h"
 #include "dplin.h"
 #include "dppoly.h"
+#include "dprectlin.h"
 
 using namespace std;
 
@@ -54,6 +55,7 @@ int main(int argc, char* argv[]) {
 		dp_rect(mat, rows, cols, height, &startr, &startc, &endr, &endc);
 		break;
 	case '5':
+		find_area_rect_lin(mat, rows, cols, height, &startr, &startc, &endr, &endc);
 		break;
 	default:
 		cout << "No test chosen. Exiting the program.\n";
