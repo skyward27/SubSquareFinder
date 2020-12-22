@@ -3,14 +3,15 @@
 #include <algorithm>
 #include <vector>
 
-
+/*Dynamic programming method to find the max area of a matrix sub rectangle whose elements are all >=k. To do this, I create two additional 
+vectors, one which holds the left index of the largest rectangle that can be formed using the current element of the current row, and one
+which holds the right index. The original matrix holds the current height by first checking if the current
+element is greater than or equal to k. If it is, it adds 1 to the same column element in the previous row and stores it at the current element.
+If it is not, the current element is set to 0. The maximum area is then calculated from all these rectangles, before moving on to the next row.
+Two for loops indexed to m are separately nested in a for loop indexed to m, giving a total time complexity of O(m*2*n), or
+O(m*n). Two additional vectors of size n are created, giving a space complexity of n^2.*/
 template<typename TwoD>
 void dp_rect(TwoD& mat, int m, int n, int k, int* startr, int* startc, int* endr, int* endc) {
-	int** buffer = new int*[m];
-	for (int i = 0; i < m; i++) {
-		buffer[i] = new int[n];
-		for (int j = 0; j < n; j++) buffer[i][j] = -1;
-	}
 	int max_area = 0;
 	std::vector<int> left(n), right(n,n);
 	for (int i = 0; i < m; i++) {
@@ -40,7 +41,6 @@ void dp_rect(TwoD& mat, int m, int n, int k, int* startr, int* startc, int* endr
 			}
 			if (mat[i][j] * (right[j] - left[j]) > max_area) {
 				max_area = mat[i][j] * (right[j] - left[j]);
-				buffer[i][j] = max_area;
 				*endr = i+1;
 				*endc = right[j];
 				*startr = i - mat[i][j]+2;

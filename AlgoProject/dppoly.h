@@ -5,7 +5,8 @@
 #include <vector>
 
 
-
+/*Recursive formula to find the maximum area square that can be formaed at matrix coordinates m n. To save on processing time, a DP matrix is stored and checked to see if a 
+certain cell has already been calculated. If it has, that answer is used rather then going through with the recursion.*/
 int find_area_dp_poly(int **mat, int m, int n, int k, int **ans) {
 	if (m == 0 || n == 0) {
 		if (mat[m][n] >= k) {
@@ -47,7 +48,8 @@ int find_area_dp_poly(int **mat, int m, int n, int k, int **ans) {
 		}
 	}
 }
-
+/*The caller function for the DP memoization recursion. Creates a DP matrix of size m*n and starts recurring on the last element. As such, space complexity is m*n. 
+Each element in the original matrix is visited once and each element in the DP matrix is visted at most 3 times, so total time complexity is 1*(m*n)n+3*(m*n) = 4*m*n = O(m*n)*/
 void get_area(int** mat, int m, int n, int k, int* startr, int* startc, int* endr, int* endc) {
 	int maxArea= 0;
 	int** buffer = new int*[m];
@@ -56,6 +58,7 @@ void get_area(int** mat, int m, int n, int k, int* startr, int* startc, int* end
 		for (int j = 0; j < n; j++) buffer[i][j] = -1;
 	}
 	buffer[m - 1][n - 1] = find_area_dp_poly(mat, m - 1, n - 1, k, buffer);
+	//Traverse the array again to find the max area.
 	for (int i = 0; i < m; i++) {
 		for (int j = 0; j < n; j++) {
 			if (buffer[i][j] > maxArea) {
@@ -65,8 +68,8 @@ void get_area(int** mat, int m, int n, int k, int* startr, int* startc, int* end
 			}
 		}
 	}
-	*startr = *endr - maxArea-1;
-	*startc = *endc - maxArea-1;
+	*startr = *endr - maxArea+1;
+	*startc = *endc - maxArea+1;
 }
 #endif // !DP_POLY_H
 
